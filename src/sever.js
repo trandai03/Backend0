@@ -5,11 +5,12 @@ const port = process.env.PORT || 8888
 const path = require('path')
 const hostname = process.env.HOST_NAME
 const webRouter = require('./routers/web')
+app.use(express.json());
 // config 
 const configViewEngine = require('./config/viewEngine');
 configViewEngine(app)
 
-app.use('/test',webRouter)
+app.use('/',webRouter)
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
 })
